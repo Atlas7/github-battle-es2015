@@ -1,13 +1,14 @@
-A web app that compares two github user profile and determine who the winner is based on stats.
+An ES6/7 style web app that compares two GitHub user profile and determine who the winner is based on stats.
 
-The output is based on the GitHub Battle Project originated from the [ReactJS Fundmental course](http://courses.reactjsprogram.com/courses/reactjsfundamentals) by [@tylermcginnis](https://github.com/tylermcginnis) - I did not "invent" this web app but this does demonstrate the tech that I have worked with (and learn from).
+The output is based on an existing ES5 style GitHub Battle Project into ES6/7 format as per the [ES6/7 for React course](http://courses.reactjsprogram.com/courses/es6forreact) by [@tylermcginnis](https://github.com/tylermcginnis)) - I did not "invent" this web app but this does demonstrate the tech that I have worked with (and learn from).
 
 Notes:
 
+- I used [this intial ES5 style GitHub Battle App](https://github.com/Atlas7/github-battle) as a starting point in converting into ES6/7 Style.
 - this app is not bullet proof - mainly used for educational / (my own) boiler-plate purposes. There are limitations.
-- though I did write this app up from scratch, I did so by following through the ReactJS Fundamentals course. All credits go to[@tylermcginnis](https://github.com/tylermcginnis) who created the course. This work is not entirely my own!
+- though I did write this app up from scratch, I did so by following through the [ES6/7 for React course](http://courses.reactjsprogram.com/courses/es6forreact) by [@tylermcginnis](https://github.com/tylermcginnis)). All credits go to[@tylermcginnis](https://github.com/tylermcginnis) who created the course. This work is not entirely my own!
 - my development environment: Node v5.10.1, Mac OSX 10.11.
-- the app is written in JavaScript ES5. There is an opportunity to turn it into ES6/ES7.
+- the app is written in JavaScript ES6/ES7. (Anything within the `app` directory is in ES6/7).
 
 # Instruction
 
@@ -18,9 +19,8 @@ To run this app on your laptop (I used a Mac) do the followings:
 git clone this repository to an appropriate location on your machine:
 
 ```
-git clone https://github.com/Atlas7/github-battle.git
+git clone https://github.com/Atlas7/github-battle-es2015.git
 ```
-
 
 ## Install NPM Dependencies
 
@@ -35,35 +35,33 @@ npm install
 
 ## Manually Setup GitHub API Access ID and Secret
 
-At the root level of the repository, manually create a folder called `secrets` (this folder is included in `.gitignore` to avoid accidentally exposing your GitHub API access credentials):
+At the 'app' level of the repository, manually create a folder called `secrets` (this folder is included in `.gitignore` to avoid accidentally exposing your GitHub API access credentials):
 
 ```
-mkdir secrets
+mkdir app/secrets
 ```
 
-Manually create a file called `githubAPIConfig.js` within this `secrets` directory:
+Manually create a file called `githubAPIConfig.js` within this `app/secrets` directory:
 
 ```
-touch secrets/githubAPIConfig.js
+touch app/secrets/githubAPIConfig.js
 ```
 
-Populate the content of this `githubAPIConfig.js` like this:
+Populate the content of this `app/secrets/githubAPIConfig.js` like this:
 
 ```js
-module.exports = {
-  id: "YOUR-GITHUB-API-ID",
-  secret: "YOUT-GITHUB-API-SECRET"
-}
+export const id = "YOUR-GITHUB-API-ID"
+export const secret = "YOUT-GITHUB-API-SECRET"
 ```
 
 Replace the string values for `id` and `secret` accordingly. You need to register an app that uses the GitHub API. Use the GitHub [Register a new OAuth Application](https://github.com/settings/applications/new) to register your application and obtain a new pair of GitHub API ID and Secret. I completed the fields like this:
 
 ```
-Application Name: github-battle
+Application Name: github-battle-es2015
 
 Homepage URL: http://localhost:8080
 
-Application Description: A fun web app that compares two GitHub User Profile stats and determine who the winner is.
+Application Description: A fun ES6/7 style web app that compares two GitHub User Profile stats and determine who the winner is.
 
 Authorization callback URL: http://localhost:8080/callback
 ```
@@ -93,5 +91,5 @@ Open the actual `dist/index.html` file (via Mac Finder) to start playing with th
 
 # References
 
-Check out this more (original and) comprehensive [React-Fundamentals GitHub repository](https://github.com/ReactjsProgram/React-Fundamentals).
+Check out this more (original and) comprehensive [ReactJS Program ES6 for React GitHub repository](https://github.com/ReactjsProgram/ES6-for-React/tree/video5).
 
