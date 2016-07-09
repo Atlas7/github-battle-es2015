@@ -1,6 +1,6 @@
 An ES6/7 style web app that compares two GitHub user profile and determine who the winner is based on stats.
 
-The output is based on an existing ES5 style GitHub Battle Project into ES6/7 format as per the [ES6/7 for React course](http://courses.reactjsprogram.com/courses/es6forreact) by [@tylermcginnis](https://github.com/tylermcginnis)) - I did not "invent" this web app but this does demonstrate the tech that I have worked with (and learn from).
+The output is based on an existing ES5 style GitHub Battle Project into ES6/7 format as per the [ES6/7 for React course](http://courses.reactjsprogram.com/courses/es6forreact) by [@tylermcginnis](https://github.com/tylermcginnis)) - I did not "invent" this web app but this does demonstrate the tech that I have worked with (and learnt from).
 
 Notes:
 
