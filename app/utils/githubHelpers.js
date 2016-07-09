@@ -26,13 +26,17 @@ function getTotalStars(repos) {
 // getRepos
 // getTotalStars
 // return object with that data
-function getPlayersData({login, followers}) {
-  return getRepos(login)
-    .then(getTotalStars)
-    .then((totalStars) => ({
-        followers,
-        totalStars
-    }))
+async function getPlayersData({login, followers}) {
+  try {
+    const repos = await getRepos(login)
+    const totalStars = await getTotalStars(repos)
+    return {
+      followers,
+      totalStars
+    }
+  } catch (error) {
+    console.warn('Error in getPlayersData: ', error)
+  }
 }
 
 // return an array, after doing some fancy algorithms to determine a winner
@@ -44,16 +48,22 @@ function calculateScores(players) {
 }
 
 // core module here
-export function getPlayersInfo (players) {
-  return axios.all(players.map((username) => getUserInfo(username)))
-    .then((info) => info.map((user) => user.data))
-    .catch(function (err) {console.warn('Error in getPlayersInfo: ', err)})
+export async function getPlayersInfo (players) {
+  try {
+    const info = await Promise.all(players.map((username) => getUserInfo(username)))
+    return info.map((user) => user.data)
+  } catch (error) {
+    console.warn('Error in getPlayersInfo: ', err)
+  }
 }
 
-export function battle (players) {
-  const playerOneData = getPlayersData(players[0]);
-  const playerTwoData = getPlayersData(players[1]);
-  return axios.all([playerOneData, playerTwoData])
-    .then(calculateScores)
-    .catch((err) => {console.warn('Error in getPlayersInfo: ', err)})
+export async function battle (players) {
+  try {
+    const playerOneData = getPlayersData(players[0]);
+    const playerTwoData = getPlayersData(players[1]);
+    const playersData = await Promise.all([playerOneData, playerTwoData])
+    return await calculateScores(playersData)
+  } catch (error) {
+    console.warn('Error in getPlayersInfo: ', err)
+  }
 }
