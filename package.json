@@ -1,5 +1,5 @@
 {
-  "name": "github-battle",
+  "name": "github-battle-es2015",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   },
   "author": "Johnny Chan",
   "license": "ISC",
+  "repository": "https://github.com/Atlas7/github-battle-es2015",
   "dependencies": {
     "axios": "^0.12.0",
     "react": "^15.2.0",
